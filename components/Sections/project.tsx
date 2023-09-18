@@ -4,14 +4,26 @@ import { useRef } from 'react';
 import { projectsData } from '@/lib/data';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = {
+  id: string;
+  name: string;
+  description: string;
+  url: string;
+  code: string;
+  image: string;
+  tools: string[];
+};
 
 export default function Project({
-  title,
+  id,
+  name,
   description,
-  tags,
-  imageUrl,
+  url,
+  code,
+  image,
+  tools,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -30,32 +42,37 @@ export default function Project({
       }}
       className="group mb-3 sm:mb-8 last:mb-0"
     >
-      <section className="bg-gray-100 border border-black/5 rounded-lg overflow-hidden relative hover:bg-gray-200 transition dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
+      <section className="bg-gray-100 border border-black/5 rounded-lg overflow-hidden relative hover:bg-gray-200 transition dark:text-white dark:bg-white/10 dark:hover:bg-white/20 h-[28rem]">
         <div className="flex flex-col h-full">
           <Image
-            src={imageUrl}
+            src={image}
             alt="Project I worked on"
             quality={95}
-            className="hidden sm:block w-full rounded-t-lg shadow-2xl h-64
-        transition
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
-
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
-
-        group-even:right-[initial] group-even:-left-40"
+            width={1136}
+            height={840}
+            className="hidden sm:block w-full h-52 rounded-t-lg shadow-2xl"
           />
-          <div className="flex flex-col space-y-2 p-2">
-            <h3 className="text-2xl font-semibold">{title}</h3>
+          <div className="flex items-center justify-between mt-5 p-3">
+            <Link
+              href={url}
+              className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition"
+            >
+              View
+            </Link>
+            <Link
+              href={code}
+              className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition bg-black/10 dark:bg-white/20"
+            >
+              Code
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-2 p-3">
+            <h3 className="text-2xl font-semibold">{name}</h3>
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
               {description}
             </p>
-            <ul className="flex flex-wrap gap-2 mt-2">
-              {tags.map((tag, index) => (
+            <ul className="flex flex-wrap gap-1 mt-2">
+              {tools.map((tag, index) => (
                 <li
                   className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
                   key={index}

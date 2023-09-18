@@ -10,8 +10,7 @@ import { SectionDivider } from '@/components/Shared';
 import prisma from '@/lib/prisma';
 
 export default async function Home() {
-  const feed = await prisma.project.findMany({});
-  console.log(feed);
+  const projects = await prisma.project.findMany({});
   return (
     <main className="flex flex-col items-center px-4">
       <Intro />
@@ -19,7 +18,7 @@ export default async function Home() {
       <div className="flex flex-col items-center">
         <About />
         <Skills />
-        <Projects />
+        <Projects projects={projects} />
         <Experience />
         <Contact />
       </div>

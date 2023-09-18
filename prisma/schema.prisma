@@ -15,7 +15,7 @@ model Project {
   name      String
   description String
   image     String
+  url       String
+  code      String
   tools     String[]
-  startDate DateTime
-  endDate   DateTime
 }
