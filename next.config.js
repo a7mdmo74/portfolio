@@ -6,6 +6,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'img.shields.io' },
       { protocol: 'https', hostname: 'user-images.githubusercontent.com' },
+      { protocol: 'https', hostname: 'ghchart.rshah.org' },
     ],
   },
   experimental: {

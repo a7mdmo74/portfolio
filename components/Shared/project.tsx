@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-import { projectsData } from '@/lib/data';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
@@ -52,25 +51,26 @@ export default function Project({
             height={840}
             className="hidden sm:block w-full h-52 rounded-t-lg shadow-2xl"
           />
-          <div className="flex items-center justify-between mt-5 p-3">
-            <Link
-              href={url}
-              className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition"
-            >
-              View
-            </Link>
-            <Link
-              href={code}
-              className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition bg-black/10 dark:bg-white/20"
-            >
-              Code
-            </Link>
-          </div>
+
           <div className="flex flex-col space-y-2 p-3">
             <h3 className="text-2xl font-semibold">{name}</h3>
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
               {description}
             </p>
+            <div className="flex items-center justify-between mt-5 p-3">
+              <Link
+                href={url}
+                className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition"
+              >
+                View
+              </Link>
+              <Link
+                href={code}
+                className="text-lg font-semibold px-3 py-1 text-black/70 hover:text-black/90 dark:text-white/70 dark:hover:text-white/90 border rounded-lg transition bg-black/10 dark:bg-white/20"
+              >
+                Code
+              </Link>
+            </div>
             <ul className="flex flex-wrap gap-1 mt-2">
               {tools.map((tag, index) => (
                 <li
@@ -87,22 +87,3 @@ export default function Project({
     </motion.div>
   );
 }
-/*
-<Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
-
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
-
-        group-even:right-[initial] group-even:-left-40"
-        />
-*/

@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Project from './project';
 import { useSectionInView } from '@/lib/hooks';
 import { SectionHeading } from '../Shared';
+import Project from '../Shared/project';
 
 type Props = {
   projects: {

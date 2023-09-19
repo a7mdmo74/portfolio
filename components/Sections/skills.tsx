@@ -56,6 +56,18 @@ export default function Skills() {
           </motion.li>
         ))}
       </ul>
+      <div className="mt-9 text-center">
+        <p className="text-2xl font-semibold my-3">
+          Contributions in this years
+        </p>
+        <Image
+          className="mx-auto p-2 dark:bg-white/5 bg-black-5 rounded-lg shadow-lg"
+          src="https://ghchart.rshah.org/a7mdmo74"
+          alt="a7mdmo74's Github chart"
+          width="1100"
+          height="200"
+        />
+      </div>
     </section>
   );
 }
