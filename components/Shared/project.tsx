@@ -49,7 +49,7 @@ export default function Project({
             quality={95}
             width={1136}
             height={840}
-            className="hidden sm:block w-full h-52 rounded-t-lg shadow-2xl"
+            className="block w-full h-52 rounded-t-lg shadow-2xl"
           />
 
           <div className="flex flex-col space-y-2 p-3">
