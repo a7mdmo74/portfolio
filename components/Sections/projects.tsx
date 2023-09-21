@@ -19,7 +19,6 @@ type Props = {
 
 export default function Projects({ projects }: Props) {
   const { ref } = useSectionInView('Projects', 0.5);
-  console.log(projects);
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
